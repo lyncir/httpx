@@ -237,7 +237,7 @@ These allow you to install client-wide functionality such as logging and monitor
 def log_request(request):
     print(f"Request event hook: {request.method} {request.url} - Waiting for response")
 
-def log_response(response):
+def log_response(request, response):
     request = response.request
     print(f"Response event hook: {request.method} {request.url} - Status {response.status_code}")
 

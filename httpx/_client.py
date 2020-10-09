@@ -780,7 +780,7 @@ class Client(BaseClient):
 
         try:
             for hook in self._event_hooks["response"]:
-                hook(response)
+                hook(request, response)
         except Exception:
             response.close()
             raise
@@ -1419,7 +1419,7 @@ class AsyncClient(BaseClient):
 
         try:
             for hook in self._event_hooks["response"]:
-                await hook(response)
+                await hook(request, response)
         except Exception:
             await response.aclose()
             raise
